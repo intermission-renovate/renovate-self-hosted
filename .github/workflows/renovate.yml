@@ -1,0 +1,19 @@
+name: renovate
+on:
+  schedule:
+    - cron:  '45 15 * * *'
+
+jobs:
+  renovate:
+    runs-on: ubuntu-latest
+    container:
+      image: renovate/renovate:37
+      env:
+        RENOVATE_PLATFORM: github
+        RENOVATE_TOKEN: ${{ secrets.RENOVATE_TOKEN }}
+        RENOVATE_AUTODISCOVER: false
+        RENOVATE_REPOSITORIES: '["intermission-renovate/flutter-pub"]'
+        LOG_LEVEL: debug
+    steps:
+      - name: Run renovate
+        run: renovate
