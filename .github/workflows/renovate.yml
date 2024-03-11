@@ -1,7 +1,5 @@
 name: renovate
-on:
-  schedule:
-    - cron:  '45 15 * * *'
+on: push
 
 jobs:
   renovate:
