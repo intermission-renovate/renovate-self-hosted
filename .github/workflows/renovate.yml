@@ -1,5 +1,6 @@
-name: renovate
-on: push
+on:
+  schedule:
+    - cron: '0 18 * * *'
 
 jobs:
   renovate:
