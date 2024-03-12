@@ -1,16 +1,15 @@
 on:
   schedule:
-    - cron: '0 18 * * *'
+    - cron: '0 11 * * *'
 
 jobs:
   renovate:
     runs-on: ubuntu-latest
     container:
-      image: renovate/renovate:37
+      image: ghcr.io/renovatebot/renovate:37
       env:
         RENOVATE_PLATFORM: github
         RENOVATE_TOKEN: ${{ secrets.RENOVATE_TOKEN }}
-        RENOVATE_AUTODISCOVER: false
         RENOVATE_REPOSITORIES: '["intermission-renovate/flutter-pub"]'
         LOG_LEVEL: debug
     steps:
